@@ -4,7 +4,7 @@
 
 **A from-scratch Super Nintendo emulator built on documented hardware behavior.**
 
-![Version](https://img.shields.io/badge/version-v0.3.3--alpha-blueviolet?style=flat-square)
+![Version](https://img.shields.io/badge/version-v0.3.4--alpha-blueviolet?style=flat-square)
 ![Language](https://img.shields.io/badge/language-C%2B%2B17-0ea5e9?style=flat-square)
 ![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux%20%7C%20Windows-555555?style=flat-square)
 ![Status](https://img.shields.io/badge/status-active%20development-f59e0b?style=flat-square)
@@ -35,6 +35,12 @@ The frontend is built for real use: immediate boot-to-game, low input latency, a
 ---
 
 ## What's New
+
+### `v0.3.4-alpha` - Auto Save-State & Multiplayer Scaffold
+
+**Auto Save-State** is now in the File menu. Toggle it on and silex silently saves to your active slot every 5 minutes of real play time - paused during rewind, scrub, and Hardcore mode. State persists across sessions.
+
+**Multiplayer scaffold** adds a top-level Multiplayer menu with a Lobby modal. Host and Join tabs, player slot display, room code areas, and a Display Name field that persists to config. Networking is a future milestone - everything is clearly marked in-development, but the feature has its permanent home in the UI.
 
 ### `v0.3.3-alpha` - Input Mapping, Two-Player Support & Bug Fixes
 
@@ -91,6 +97,8 @@ Post-processing shader pipeline (OpenGL), Guide/Home controller scrub-pause bind
 | Input remapping wizard (all 12 SNES buttons) | ✅ |
 | Two-player support (Port 1 + Port 2) | ✅ |
 | Nintendo Switch button layout detection | ✅ |
+| Auto save-state (every 5 min, File menu toggle) | ✅ |
+| Multiplayer lobby UI (scaffold) | 🔧 In development |
 | SRAM auto-save (atomic writes, rolling backup) | ✅ |
 | Post-process shader pipeline | ✅ OpenGL only |
 | RetroAchievements integration | ✅ Standard play |

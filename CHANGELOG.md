@@ -2,6 +2,30 @@
 
 All notable silex release milestones are tracked here.
 
+## v0.3.4-alpha - 2026-03-29
+
+Auto save-state and multiplayer lobby scaffold.
+
+### Save States
+
+- added **Auto Save-State** toggle in the File menu, above the State Slot submenu
+- when enabled, silex silently saves to your active slot every 5 minutes of real play time
+- timer pauses during rewind and scrub; disabled automatically in Hardcore mode
+- on/off state persisted across sessions
+- toast confirmation on toggle
+
+### Multiplayer (scaffold)
+
+- added **Multiplayer** top-level menu between Settings and Debug
+- **Multiplayer > Lobby...** opens a modal with Host and Join tabs
+- Host tab: room code display, 4 player slot list, Start Session button
+- Join tab: room code input (persisted), slot indicators, Connect button
+- Display Name field persisted across sessions
+- all network-dependent features are clearly marked as in-development
+- concept: shared-world co-op where each connected player gets their own copy of the host's player character; world state synced to host; up to 4 players per session
+
+---
+
 ## v0.3.3-alpha - 2026-03-29
 
 Input mapping overhaul, two-player controller support, Nintendo Switch button fix, and multi-monitor DPI window scaling fix.
