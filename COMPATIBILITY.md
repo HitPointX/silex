@@ -7,11 +7,11 @@ This file tracks real software validation progress for silex.
 
 ## Status Legend
 
-- `Boots` — reaches executable game code and progresses past reset/startup
-- `In Intro` — reaches title / intro / non-gameplay scenes with meaningful rendering
-- `Partial Gameplay` — enters gameplay or gameplay-adjacent scenes with known issues
-- `Blocked` — currently blocked by a specific subsystem gap
-- `Validated` — targeted subsystem/test passes its intended milestone
+- `Boots` - reaches executable game code and progresses past reset/startup
+- `In Intro` - reaches title / intro / non-gameplay scenes with meaningful rendering
+- `Partial Gameplay` - enters gameplay or gameplay-adjacent scenes with known issues
+- `Blocked` - currently blocked by a specific subsystem gap
+- `Validated` - targeted subsystem/test passes its intended milestone
 
 ## Commercial Library
 

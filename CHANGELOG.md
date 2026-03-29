@@ -4,7 +4,7 @@ All notable silex release milestones are tracked here.
 
 ## v0.3.2-alpha - 2026-03-29
 
-Battery-backed SRAM persistence — saves now survive across emulator sessions.
+Battery-backed SRAM persistence - saves now survive across emulator sessions.
 
 ### SRAM Persistence
 
@@ -12,19 +12,19 @@ Battery-backed SRAM persistence — saves now survive across emulator sessions.
 - `.srm` path is derived from the ROM path at load time; existing save data is loaded and validated on startup
 - dirty tracking ensures only writes to battery-backed RAM (LoROM/HiROM SRAM, Super FX RAM, SA-1 BW-RAM) trigger a flush
 - periodic background flush every 60 seconds by default (configurable, range 10–3600 s)
-- flush skipped during rewind — only real forward-play frames trigger the periodic check
+- flush skipped during rewind - only real forward-play frames trigger the periodic check
 - forced flush on ROM swap and on application exit so no data is lost on clean shutdown
 
 ### Data Safety
 
-- atomic write: SRAM is written to a temp file then renamed — the `.srm` file is never in a partially-written state
+- atomic write: SRAM is written to a temp file then renamed - the `.srm` file is never in a partially-written state
 - rolling backup: the existing `.srm` is copied to `.srm.bak` before each overwrite, preserving the previous good save
 - stale temp files from prior crashes are cleaned up automatically on the next flush
 
 ### Frontend
 
 - toast notification `"SRAM saved"` appears after a background flush that wrote data to disk
-- toast notification `"SRAM save failed — check disk"` appears on any flush failure
+- toast notification `"SRAM save failed - check disk"` appears on any flush failure
 - flush interval is adjustable in Settings
 
 ### CLI
@@ -146,7 +146,7 @@ Audio milestone. SPC700 APU core and DSP voice engine integrated end-to-end; aud
 
 ### Timing Fixes
 
-- corrected BRR block header bit ordering: end flag = bit 0, loop flag = bit 1 (was reversed, causing voices to die after four samples in most commercial titles — root cause of BGM silence across all tested ROMs)
+- corrected BRR block header bit ordering: end flag = bit 0, loop flag = bit 1 (was reversed, causing voices to die after four samples in most commercial titles - root cause of BGM silence across all tested ROMs)
 - corrected SPC instruction tick unit scaling: instruction cycle counts were in a 2× internal scale and were passed directly to the timer and DSP accumulators, causing computation loops to consume 2× the expected timer ticks and producing audible BGM slowdown
 - per-instruction CPU/SPC interleaving: APU now receives proportional ticks after each CPU instruction rather than once per scanline, eliminating the port-handshake stall that occurred during sound data uploads
 

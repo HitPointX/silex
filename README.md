@@ -36,13 +36,13 @@ The frontend is built for real use: immediate boot-to-game, low input latency, a
 
 ## What's New
 
-### `v0.3.2-alpha` — SRAM Persistence
+### `v0.3.2-alpha` - SRAM Persistence
 
 Game saves now survive across sessions. Save data is loaded automatically when a ROM opens, written to disk in the background every 60 seconds, and flushed on exit so no progress is ever lost on a clean shutdown.
 
-Writes are **atomic** — data goes to a temp file, then renames over the destination. A **rolling backup** preserves the previous good save before each new write. The flush interval is adjustable in Settings. Use `--no-srm` to disable persistence entirely for headless or scripted runs.
+Writes are **atomic** - data goes to a temp file, then renames over the destination. A **rolling backup** preserves the previous good save before each new write. The flush interval is adjustable in Settings. Use `--no-srm` to disable persistence entirely for headless or scripted runs.
 
-### `v0.3.1-alpha` — Shaders, Scrub Controls, CPU Fixes
+### `v0.3.1-alpha` - Shaders, Scrub Controls, CPU Fixes
 
 Post-processing shader pipeline (OpenGL), Guide/Home controller scrub-pause binding, corrected BCD decimal-mode arithmetic, SETINI register, H-IRQ timing correction, and expanded PPU tracing.
 
@@ -57,7 +57,7 @@ Post-processing shader pipeline (OpenGL), Guide/Home controller scrub-pause bind
 | **65C816 CPU** | ✅ | Full opcode table, all addressing modes, NMI/IRQ/BRK/COP, correct BCD decimal mode |
 | **Cartridge / Bus** | ✅ | LoROM, HiROM, WRAM, hardware register windows, SRAM persistence |
 | **DMA / HDMA** | ✅ | General DMA channels, multiple transfer modes, HDMA state and execution |
-| **PPU** | 🔧 | BG modes, OBJ/OAM, windowing, color math, Mode 7 — ongoing correctness work |
+| **PPU** | 🔧 | BG modes, OBJ/OAM, windowing, color math, Mode 7 - ongoing correctness work |
 | **SPC700 APU** | ✅ | From-scratch core, full opcode table, hardware-accurate cycle counts, all three timers |
 | **DSP** | ✅ | BRR decode, 8 voices, ADSR/GAIN, echo/reverb, stereo master output |
 | **Audio Pipeline** | ✅ | SDL2 at 32 kHz stereo S16, ring buffer, volume control |
@@ -93,8 +93,8 @@ Post-processing shader pipeline (OpenGL), Guide/Home controller scrub-pause bind
 |---|:---:|:---:|:---:|---|
 | `OpenGL3` | ✅ | ✅ | ✅ | Primary renderer; full shader pipeline available |
 | `Software` | ✅ | ✅ | ✅ | Optional threaded presentation worker |
-| `Vulkan` | — | ✅ | ✅ | Requires a Vulkan-capable driver |
-| `D3D11` | — | — | ✅ | Windows-native path |
+| `Vulkan` | - | ✅ | ✅ | Requires a Vulkan-capable driver |
+| `D3D11` | - | - | ✅ | Windows-native path |
 
 ### Shader Presets (OpenGL only)
 
@@ -122,7 +122,7 @@ Post-processing shader pipeline (OpenGL), Guide/Home controller scrub-pause bind
 | Save states | Multiple slots, save and load at any time |
 | Rewind | Continuous history buffer, scrub-accessible |
 | SRAM auto-save | Background flush every 60 s by default (adjustable: 10–3600 s) |
-| Atomic writes | Temp file + rename — the `.srm` file is never partially written |
+| Atomic writes | Temp file + rename - the `.srm` file is never partially written |
 | Rolling backup | Previous good save preserved as `.srm.bak` before each write |
 | `--no-srm` | Disables disk persistence for headless and scripted use |
 
@@ -142,7 +142,7 @@ Each category is individually toggleable in Settings:
 ## Implemented Systems
 
 <details>
-<summary><strong>CPU — WDC 65C816</strong></summary>
+<summary><strong>CPU - WDC 65C816</strong></summary>
 <br>
 
 - reset, native, and emulation mode behavior
@@ -328,9 +328,9 @@ See [COMPATIBILITY.md](COMPATIBILITY.md) for per-title notes, known remaining is
 
 ### Helping Find Bugs
 
-If a game doesn't run correctly, the tools below help isolate what's wrong. A good bug report saves a lot of time — the ideal one tells you exactly which subsystem to look at.
+If a game doesn't run correctly, the tools below help isolate what's wrong. A good bug report saves a lot of time - the ideal one tells you exactly which subsystem to look at.
 
-#### Step 1 — Reproduce headlessly
+#### Step 1 - Reproduce headlessly
 
 ```bash
 ./build/silex --headless game.sfc --max-frames 600 --screenshot-frame 590 --screenshot-out /tmp/result.png
@@ -338,15 +338,15 @@ If a game doesn't run correctly, the tools below help isolate what's wrong. A go
 
 Run without a display and capture a screenshot at a known frame. This gives a clean, reproducible baseline independent of the live UI.
 
-#### Step 2 — Enable full CPU trace
+#### Step 2 - Enable full CPU trace
 
 ```bash
 ./build/silex --headless game.sfc --trace > trace.txt 2>&1
 ```
 
-Full CPU instruction trace. Output is large — pipe to a file and search for unexpected register state, wrong opcode sequences, or incorrect branch behavior near the failure point.
+Full CPU instruction trace. Output is large - pipe to a file and search for unexpected register state, wrong opcode sequences, or incorrect branch behavior near the failure point.
 
-#### Step 3 — Narrow with targeted traces
+#### Step 3 - Narrow with targeted traces
 
 **Audio issues (silence, wrong pitch, crackling):**
 ```bash
@@ -377,7 +377,7 @@ SILEX_OAM_ACTIVE_TRACE_FRAME=120 \
 | **Save state** | Save state at or just before the failing scene (use the in-app save state slots, then attach the file) |
 | **Trace excerpt** | The relevant window of CPU or subsystem trace output |
 
-Send reports to **`dev@hitpoint.pro`** with the subject line `silex bug — <Title>`. Attaching a save state that lands right at the problem frame cuts diagnosis time significantly.
+Send reports to **`dev@hitpoint.pro`** with the subject line `silex bug - <Title>`. Attaching a save state that lands right at the problem frame cuts diagnosis time significantly.
 
 > **Hardware reference:** [fullsnes](https://problemkaputt.de/fullsnes.htm) is the primary register-level reference used to validate silex behavior. If something looks wrong, it's the first place to check expected hardware output.
 
@@ -389,7 +389,7 @@ Send reports to **`dev@hitpoint.pro`** with the subject line `silex bug — <Tit
 
 | # | Work Item |
 |:---:|---|
-| 1 | PPU correctness — LttP file-name screen, DKC gameplay gaps |
+| 1 | PPU correctness - LttP file-name screen, DKC gameplay gaps |
 | 2 | APU / DSP edge cases and additional title coverage |
 | 3 | Input and progression path stability |
 | 4 | Expand curated compatibility set |
