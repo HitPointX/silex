@@ -14,7 +14,7 @@
 
 ---
 
-silex is a from-scratch SNES emulator written in C++17. Every subsystem is built directly from hardware documentation — no borrowed cores, no pasted logic, no close-enough guesses. The goal is a clean, maintainable codebase that reaches hardware-accurate behavior through disciplined, documented implementation.
+silex is a from-scratch SNES emulator written in C++17. Every subsystem is built directly from hardware documentation - no borrowed cores, no pasted logic, no close-enough guesses. The goal is a clean, maintainable codebase that reaches hardware-accurate behavior through disciplined, documented implementation.
 
 The frontend is built for real use: immediate boot-to-game, low input latency, a retro-inspired feel, and a full toolset to validate behavior against real commercial software.
 
