@@ -2,6 +2,29 @@
 
 All notable silex release milestones are tracked here.
 
+## v0.3.3-alpha - 2026-03-29
+
+Input mapping overhaul, two-player controller support, Nintendo Switch button fix, and multi-monitor DPI window scaling fix.
+
+### Input
+
+- added **Settings > Input** modal with per-port configuration for Port 1 and Port 2
+- device dropdown auto-selects the currently connected controller; falls back to keyboard when no controller is detected
+- **Automatic Input Mapping** is on by default - SDL GameController mapping applies with no user action required
+- **Remapping wizard** walks through all 12 bindings in order: A, B, X, Y, D-Pad Left/Right/Up/Down, Start, Select, L, R
+- wizard captures a single keypress or gamepad button per step; any step can be skipped
+- on completion the port switches to **custom** mode and the Automatic checkbox clears
+- re-enabling Automatic reverts custom bindings and restores SDL-default mapping
+- bindings persist across sessions in `config.ini`
+- **Port 2 (Player 2) fully wired:** two-player games now work out of the box with no configuration required
+
+### Bug Fixes
+
+- **Nintendo Switch controller A/B/X/Y mapping:** SDL 2.28 changed the default to label-based mapping for Nintendo controllers, which mapped the physical South button as A (Nintendo label) rather than as the SNES B button (position-equivalent). silex now detects Nintendo Switch controllers and automatically corrects the mapping to SNES position-based layout. Xbox, DualSense, and all other controllers are unaffected.
+- **Multi-monitor DPI window scaling:** dragging the silex window between monitors with different DPI scales no longer causes the window to grow exponentially. The resize handler now distinguishes compositor-driven DPI rescales from genuine user resizes and holds the intended window size.
+
+---
+
 ## v0.3.2-alpha - 2026-03-29
 
 Battery-backed SRAM persistence - saves now survive across emulator sessions.

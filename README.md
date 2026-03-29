@@ -4,7 +4,7 @@
 
 **A from-scratch Super Nintendo emulator built on documented hardware behavior.**
 
-![Version](https://img.shields.io/badge/version-v0.3.2--alpha-blueviolet?style=flat-square)
+![Version](https://img.shields.io/badge/version-v0.3.3--alpha-blueviolet?style=flat-square)
 ![Language](https://img.shields.io/badge/language-C%2B%2B17-0ea5e9?style=flat-square)
 ![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux%20%7C%20Windows-555555?style=flat-square)
 ![Status](https://img.shields.io/badge/status-active%20development-f59e0b?style=flat-square)
@@ -36,6 +36,16 @@ The frontend is built for real use: immediate boot-to-game, low input latency, a
 
 ## What's New
 
+### `v0.3.3-alpha` - Input Mapping, Two-Player Support & Bug Fixes
+
+**Settings > Input** lets you configure Port 1 and Port 2 independently. A device dropdown auto-selects your active controller (falls back to keyboard), and a step-by-step remapping wizard covers all 12 SNES buttons. Automatic mapping is on by default; the wizard switches the port to custom mode and persists bindings across sessions.
+
+**Port 2 (Player 2)** is now fully wired — two-player games work out of the box.
+
+**Nintendo Switch controller fix:** SDL 2.28 introduced label-based mapping for Nintendo controllers, which caused A/B and X/Y to be swapped relative to SNES button positions. silex now detects this automatically and corrects the mapping. Xbox, DualSense, and all other controllers are unaffected.
+
+**Multi-monitor DPI fix:** dragging the silex window between monitors with different DPI scales no longer causes the window to grow.
+
 ### `v0.3.2-alpha` - SRAM Persistence
 
 Game saves now survive across sessions. Save data is loaded automatically when a ROM opens, written to disk in the background every 60 seconds, and flushed on exit so no progress is ever lost on a clean shutdown.
@@ -62,7 +72,7 @@ Post-processing shader pipeline (OpenGL), Guide/Home controller scrub-pause bind
 | **DSP** | ✅ | BRR decode, 8 voices, ADSR/GAIN, echo/reverb, stereo master output |
 | **Audio Pipeline** | ✅ | SDL2 at 32 kHz stereo S16, ring buffer, volume control |
 | **Interrupt Path** | ✅ | NMI, IRQ, auto-joypad wired |
-| **Joypad / Input** | ✅ | Keyboard + SDL GameController, auto-joypad register, Guide/Home scrub binding |
+| **Joypad / Input** | ✅ | Keyboard + SDL GameController, Port 1 & Port 2, auto-joypad register, Guide/Home scrub binding, custom remapping |
 
 > ✅ Implemented and validated &nbsp;|&nbsp; 🔧 Active correctness work
 
@@ -77,6 +87,10 @@ Post-processing shader pipeline (OpenGL), Guide/Home controller scrub-pause bind
 | Save / load state slots | ✅ |
 | Rewind + fast-forward + scrub | ✅ |
 | Guide/Home controller scrub binding | ✅ |
+| Per-port input mapping (Settings > Input) | ✅ |
+| Input remapping wizard (all 12 SNES buttons) | ✅ |
+| Two-player support (Port 1 + Port 2) | ✅ |
+| Nintendo Switch button layout detection | ✅ |
 | SRAM auto-save (atomic writes, rolling backup) | ✅ |
 | Post-process shader pipeline | ✅ OpenGL only |
 | RetroAchievements integration | ✅ Standard play |
@@ -113,6 +127,9 @@ Post-processing shader pipeline (OpenGL), Guide/Home controller scrub-pause bind
 
 - keyboard and SDL GameController merged into a single unified input path
 - SDL GameController covers the vast majority of real-world pads automatically
+- **Port 1 and Port 2** independently configurable - two-player games work out of the box
+- **Settings > Input:** device dropdown, automatic mapping toggle, and step-by-step remapping wizard covering all 12 SNES buttons; bindings persist across sessions
+- **Nintendo Switch controllers:** A/B and X/Y are automatically corrected to SNES position-based mapping regardless of SDL version
 - **Guide / Home binding:** hold Guide/Home to pause at the current frame; D-pad Left / Right steps backward through rewind history or advances at fast-forward speed
 
 ### Save System
