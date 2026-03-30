@@ -228,7 +228,7 @@ First versioned development snapshot.
 - headless execution, tracing, and screenshot tooling available
 - PPU path progressed from fallback output to meaningful commercial-game scene rendering
 - sprite rendering, window masking, color-window logic, and multiple scene-composition fixes integrated
-- commercial regression testing actively underway against `The Legend of Zelda: A Link to the Past` and `Donkey Kong Country`
+- commercial regression testing actively underway against `LttP` and `DKC`
 
 ### Validation Snapshot
 
