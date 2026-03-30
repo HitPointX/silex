@@ -337,14 +337,6 @@ Full compatibility status is tracked in **[COMPATIBILITY.md](COMPATIBILITY.md)**
 ### Current Validation Set
 
 | Title | Status |
-|---|---|
-| Chrono Trigger | 🟡 Partial Gameplay |
-| Donkey Kong Country | 🟡 Partial Gameplay |
-| F-Zero | 🟡 Partial Gameplay |
-| Final Fantasy IV | 🟡 Partial Gameplay |
-| The Legend of Zelda: A Link to the Past | 🟡 Partial Gameplay |
-| Super Mario World | 🟡 Partial Gameplay |
-| Super Metroid | 🟡 Partial Gameplay |
 | PeterLemon CPU suite | ✅ Validated |
 
 See [COMPATIBILITY.md](COMPATIBILITY.md) for per-title notes, known remaining issues, and the status legend.
