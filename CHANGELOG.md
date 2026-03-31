@@ -2,6 +2,32 @@
 
 All notable silex release milestones are tracked here.
 
+## v0.4.0-alpha - 2026-03-31
+
+Multiplayer gameplay milestone.
+
+### Multiplayer
+
+- promoted multiplayer from UI scaffold to working rollback netplay across real gameplay
+- host/join flow now supports direct IP:port sessions and room-code sessions through the signaling server, with relay fallback when needed
+- deterministic state sync now hands both peers into play on the same logical frame
+- host and client stay synchronized through real gameplay with delayed input execution, expanded rollback history, and checksum-based desync detection
+- added host-authoritative resync recovery when a client diverges beyond rollback repair
+- reconnect/disconnect cleanup now works without restarting the emulator
+- fixed input ring aliasing across wrapped frames, eliminating false reuse of stale confirmed inputs
+- corrected silent rollback replay so re-simulation no longer commits visible-frame side effects or causes presentation hitching
+- cleaned up same-session sync handling, sync flood behavior, relay buffer pressure, and disconnect error handling
+
+### Tooling
+
+- added and expanded the ROM-backed headless netplay harness for deterministic validation of sync, gameplay input, reconnect, and forced-resync scenarios
+- added multiplayer diagnostics and packet-flow hardening around sync, ACK, checksum, and session transitions
+
+### Co-op
+
+- LTTP shared-world runtime remains experimental and is the only active co-op testbed
+- co-op support is not yet considered a finished gameplay feature outside that testbed
+
 ## v0.3.4-alpha - 2026-03-29
 
 Auto save-state and multiplayer lobby scaffold.

@@ -4,7 +4,7 @@
 
 **A from-scratch Super Nintendo emulator built on documented hardware behavior.**
 
-![Version](https://img.shields.io/badge/version-v0.3.4--alpha-blueviolet?style=flat-square)
+![Version](https://img.shields.io/badge/version-v0.4.0--alpha-blueviolet?style=flat-square)
 ![Language](https://img.shields.io/badge/language-C%2B%2B17-0ea5e9?style=flat-square)
 ![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux%20%7C%20Windows-555555?style=flat-square)
 ![Status](https://img.shields.io/badge/status-active%20development-f59e0b?style=flat-square)
@@ -35,6 +35,14 @@ The frontend is built for real use: immediate boot-to-game, low input latency, a
 ---
 
 ## What's New
+
+### `v0.4.0-alpha` - Multiplayer Gameplay
+
+**Multiplayer gameplay** is now fully playable. Host and Join sessions stay in sync through real gameplay, disconnect and reconnect flows recover cleanly, and checksum-driven host-authoritative resync can recover a diverged client.
+
+**Netplay stack** now includes room-code signaling, relay fallback, rollback prediction, delayed input execution, larger rollback history, and a ROM-backed validation harness used to stress sync, reconnect, and resync behavior.
+
+**Co-op runtime** remains experimental. LTTP shared-world work is the active testbed, but it is not yet a finished general-use feature.
 
 ### `v0.3.4-alpha` - Auto Save-State & Multiplayer Scaffold
 
@@ -98,7 +106,8 @@ Post-processing shader pipeline (OpenGL), Guide/Home controller scrub-pause bind
 | Two-player support (Port 1 + Port 2) | ✅ |
 | Nintendo Switch button layout detection | ✅ |
 | Auto save-state (every 5 min, File menu toggle) | ✅ |
-| Multiplayer lobby UI (scaffold) | 🔧 In development |
+| Multiplayer rollback netplay (host/join, room codes, relay fallback, reconnect, resync) | ✅ |
+| Experimental LTTP co-op runtime | 🔧 LTTP testbed only |
 | SRAM auto-save (atomic writes, rolling backup) | ✅ |
 | Post-process shader pipeline | ✅ OpenGL only |
 | RetroAchievements integration | ✅ Standard play |

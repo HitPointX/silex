@@ -1,7 +1,7 @@
 # Compatibility
 
-**Snapshot:** `v0.3.2-alpha`
-**Last updated:** 2026-03-29
+**Snapshot:** `v0.4.0-alpha`
+**Last updated:** 2026-03-31
 
 This file tracks real software validation progress for silex.
 
@@ -23,6 +23,12 @@ This file tracks real software validation progress for silex.
 | Game / Suite | Status | Result |
 |---|---|---|
 | PeterLemon CPU test suite | Validated | Current CPU validation baseline |
+
+## Netplay Validation
+
+| Area | Status | Result |
+|---|---|---|
+| Multiplayer gameplay sync | Validated | Host/client progression, reconnect handling, and desync recovery validated against Super Mario World |
 
 ## Notes
 
