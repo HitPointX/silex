@@ -20,7 +20,6 @@ The frontend is built for real use: immediate boot-to-game, low input latency, a
 
 ## Contents
 
-- [What's New](#whats-new)
 - [Status](#status)
 - [Platform & Renderer Support](#platform--renderer-support)
 - [Frontend Features](#frontend-features)
@@ -34,41 +33,7 @@ The frontend is built for real use: immediate boot-to-game, low input latency, a
 
 ---
 
-## What's New
-
-### `v0.4.0-alpha` - Multiplayer Gameplay
-
-**Multiplayer gameplay** is now fully playable. Host and Join sessions stay in sync through real gameplay, disconnect and reconnect flows recover cleanly, and checksum-driven host-authoritative resync can recover a diverged client.
-
-**Netplay stack** now includes room-code signaling, relay fallback, rollback prediction, delayed input execution, larger rollback history, and a ROM-backed validation harness used to stress sync, reconnect, and resync behavior.
-
-**Co-op runtime** remains experimental. LTTP shared-world work is the active testbed, but it is not yet a finished general-use feature.
-
-### `v0.3.4-alpha` - Auto Save-State & Multiplayer Scaffold
-
-**Auto Save-State** is now in the File menu. Toggle it on and silex silently saves to your active slot every 5 minutes of real play time - paused during rewind, scrub, and Hardcore mode. State persists across sessions.
-
-**Multiplayer scaffold** adds a top-level Multiplayer menu with a Lobby modal. Host and Join tabs, player slot display, room code areas, and a Display Name field that persists to config. Networking is a future milestone - everything is clearly marked in-development, but the feature has its permanent home in the UI.
-
-### `v0.3.3-alpha` - Input Mapping, Two-Player Support & Bug Fixes
-
-**Settings > Input** lets you configure Port 1 and Port 2 independently. A device dropdown auto-selects your active controller (falls back to keyboard), and a step-by-step remapping wizard covers all 12 SNES buttons. Automatic mapping is on by default; the wizard switches the port to custom mode and persists bindings across sessions.
-
-**Port 2 (Player 2)** is now fully wired — two-player games work out of the box.
-
-**Nintendo Switch controller fix:** SDL 2.28 introduced label-based mapping for Nintendo controllers, which caused A/B and X/Y to be swapped relative to SNES button positions. silex now detects this automatically and corrects the mapping. Xbox, DualSense, and all other controllers are unaffected.
-
-**Multi-monitor DPI fix:** dragging the silex window between monitors with different DPI scales no longer causes the window to grow.
-
-### `v0.3.2-alpha` - SRAM Persistence
-
-Game saves now survive across sessions. Save data is loaded automatically when a ROM opens, written to disk in the background every 60 seconds, and flushed on exit so no progress is ever lost on a clean shutdown.
-
-Writes are **atomic** - data goes to a temp file, then renames over the destination. A **rolling backup** preserves the previous good save before each new write. The flush interval is adjustable in Settings. Use `--no-srm` to disable persistence entirely for headless or scripted runs.
-
-### `v0.3.1-alpha` - Shaders, Scrub Controls, CPU Fixes
-
-Post-processing shader pipeline (OpenGL), Guide/Home controller scrub-pause binding, corrected BCD decimal-mode arithmetic, SETINI register, H-IRQ timing correction, and expanded PPU tracing.
+See [CHANGELOG.md](CHANGELOG.md) for the full version history.
 
 ---
 
